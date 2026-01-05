@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fsocket - Test WS</title> <!--title-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> <!--bootstrap css-->
+    <link rel="icon" type="image/x-icon" href="/static/fs.ico"> <!--title icon-->
+    <link rel="stylesheet" href="/static/ws_test.css"> <!--css-->
+
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jua&family=Lilita+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <h1 class="title">Fsocket</h1> <!--title-->
+    <!--main card-->
+    <div class="container d-flex justify-content-center mt-3">
+        <div class="card text-center mainCard" >
+            <div class="card-body">
+                <p class="subtitle">For Socket Relay Testing</p>  <!--brief--> <hr class="horizontal_line">
+
+                 <!--connection-start-->
+                 <div class="connection">
+                    <div class="input-group mb-3">
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="Connection ID" id="userId_input">
+                        <div class="input-group-text checkBox_div">Stay Alive &nbsp&nbsp
+                            <input class="form-check-input mt-0 pointer_cursor check_box" type="checkbox" id="auto_reconnect_checkbox"  aria-label="Checkbox for setting autoreconnect on/off">
+                        </div>
+                        <span class="input-group-text checkBox_div" id="connection_status_label">Not-connected</span>
+                    </div>
+                    <button type="button" style="width: 100%;" class="btn btn-secondary connectionButton normal_button" id="connectButton">Connect</button><br><br>
+                 </div>
+                 <!--connection-end-->
+
+                  <!--send message-start-->
+                  <div class="send_message">
+                    <p class="subtitle-no-animation">Send Message</p>
+                    <div class="input-group">
+                        <input type="text" class="form-control fs_input_normal" autocomplete="off" id="message_type_input" value="simpleMessage" placeholder="Message type"> <!--message type-->
+                        <input type="text" class="form-control fs_input_normal" id="target_Id_input" autocomplete="off"  placeholder="Target ID"> <!--message target-->
+                        <!--base 64 encode checkbox-->
+                        <div class="input-group-text checkBox_div">Base64 Enc &nbsp&nbsp
+                            <input class="form-check-input mt-0 pointer_cursor check_box" type="checkbox" id="base64_encoding_checkBox"  aria-label="Checkbox for setting autoreconnect on/off">
+                        </div>
+                    </div><br>
+                    <!--message content input and send-->
+                     <div class="input-group">
+                        <input type="text" class="form-control fs_input_normal" id="message_content_input" autocomplete="off"  placeholder="Message Content"><br>
+                        <button type="button" class="btn btn-secondary sendButton normal_button" id="send_button">Send Message</button>
+                    </div>
+                  </div>
+                  <!--send message end--><hr class="horizontal_line">
+
+                  <!--receive message start-->
+                  <div class="receive_message">
+                    <ul data-bs-toggle="modal" data-bs-target="#detailModal" class="list-group messageReceiveList" id="message_list" data-bs-toggle="modal" data-bs-target="#detailModal">
+                    </ul>
+                  </div>
+                  <!--receive message end-->
+            </div>
+        </div>
+    </div>
+    <!--main card end-->
+
+    <!--detailed view modal start-->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content showMoreModal">
+                <div class="modal-body">
+                    <p class="subtitle-no-animation" style="text-align: center;">Detailed View</p> <!--subtitle-->
+                    <br>
+                    <!--message from-->
+                    <div class="input-group">
+                        <span class="input-group-text checkBox_div">From</span>
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="Message From" id="modal_msg_from" >
+                    </div><br>
+
+                    <!--message to-->
+                    <div class="input-group">
+                        <span class="input-group-text checkBox_div">&nbsp To &nbsp&nbsp&nbsp</span>
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="To" id="modal_msg_to" >
+                    </div><br>
+
+                    <!--message type-->
+                    <div class="input-group">
+                        <span class="input-group-text checkBox_div">Type</span>
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="Message Type" id="modal_msg_type" >
+                    </div><br>
+
+                    <!--message time-->
+                    <div class="input-group">
+                        <span class="input-group-text checkBox_div">Time</span>
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="Message Time" id="modal_msg_time" >
+                    </div><br>
+
+                    <!--message content label and base64 button-->
+                    <div class="base64_decode_section">
+                        <label class="simple_label">Message Content</label><br><br>
+                        <label class="simple_label base_64_converter_button" id="base_64_decoder_button" style="cursor: pointer;" >Decode Base64</label>
+                    </div><br>
+
+                    <!--message content-->
+                    <div class="form-floating">
+                        <textarea class="form-control fs_input_normal text_area_message_view"   id="modal_msg_content"style="height: 100px"></textarea>
+                    </div><br>
+
+                    <!--raw message-->
+                    <div class="input-group">
+                        <span class="input-group-text checkBox_div">Raw </span>
+                        <input type="text" autocomplete="off" class="form-control fs_input_normal" placeholder="raw message model" id="modal_msg_raw" >
+                    </div><br><br><br>
+
+                    <!--close modal-->
+                    <button type="button" class="btn btn-secondary normal_button closeButton" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--detailed view modal end-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!--bootstrap js-->
+    <script src="/static/socket.js"></script>
+    <script src="/static/ws_test.js"></script>
+</body>
+</html>

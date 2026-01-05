@@ -1,0 +1,209 @@
+body{
+    background: #0b132b; 
+}
+
+/*title with animation and timage inside*/
+.title{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 100px;
+    color: transparent;
+    background-image: url("/static/title_bg.webp");
+    background-size: auto;
+    background-clip: text;
+    animation: animate 20s linear infinite;
+    text-align: center;
+    cursor: grab;
+}
+
+/* text with image animation*/
+@keyframes animate{
+    to{
+        background-position: -500px;
+    }
+}
+
+/*main card*/
+.mainCard{
+    width: 30rem; background-color: #070c1b;
+}
+
+/*subtitle with  typewrite animation*/
+.subtitle{
+  color: whitesmoke !important;
+  font-size: 25px;
+  font-weight: 900 !important;
+
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .30em solid #5b5383 !important; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #5b5383; }
+}
+
+/*normal input*/
+.fs_input_normal,.fs_input_normal:focus{
+  font-size: 20px;
+  background-color: #0b132b !important;
+  border-color: black;
+  outline: none !important; 
+  color: whitesmoke;
+}
+.fs_input_normal::placeholder{
+    color: rgb(182, 182, 182);
+}
+
+/*horizontal line*/
+.horizontal_line{
+    border-color: #5b5383;
+}
+
+/*checkbox*/
+.checkBox_div{
+  background: #0b132b; 
+  border-color: black;
+  outline: none !important;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.check_box{
+  background-color: #5b5383;
+  border-color: #0b132b;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.check_box:checked{
+  background-color: #37324e;
+  border-color: #5b5383;
+}
+
+/*normal button*/
+.normal_button{
+    background-image: url("/static/title_bg.webp");
+    border-color: #070c1b;
+}
+
+.normal_button:hover{
+  border-color: #5b5383 !important;
+}
+
+/*connection button*/
+.connectionButton{
+    font-weight: 900;
+    font-size: 24px;
+}
+
+/*send section*/
+.subtitle-no-animation{
+  color: whitesmoke !important;
+  font-size: 25px;
+  font-weight: 900 !important;
+}
+
+.sendButton{
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/*receive message*/
+.messageReceiveList{
+  height: 250px;
+  background-color: #040811;
+  overflow-y: auto;
+  padding: 5px;
+}
+
+.message_item{
+  background-color: #0b132b;
+  color: whitesmoke;
+  border-color: #040811;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.message_item:hover{
+  cursor: pointer;
+}
+
+/*show more modal*/
+.showMoreModal{
+    background-color: #070c1b;
+}
+
+.base64_decode_section{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+     padding: 5px;
+}
+
+.simple_label{
+  color: whitesmoke;
+}
+
+.base_64_converter_button{
+    cursor: pointer;
+    color: #5b5383;
+    border: 2px solid #5b5383;
+    padding: 10px;
+}
+
+.text_area_message_view{
+  resize: none;
+  height: 150px !important;
+}
+.text_area_message_view::placeholder{
+  color: rgb(177, 176, 176) !important;
+}
+
+.closeButton{
+  width: 100%;
+  font-size: 20px;
+}
+
+
+/*scroll*/
+
+/* 1. The container (the track) */
+::-webkit-scrollbar {
+  width: 12px;              /* Width of the vertical scrollbar */
+  height: 12px;             /* Height of the horizontal scrollbar */
+}
+
+/* 2. The background of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #070c1b;      /* Dark background */
+  border-radius: 10px;
+}
+
+/* 3. The draggable handle */
+::-webkit-scrollbar-thumb {
+  background: #0b132b;         /* Dark grey handle */
+  border-radius: 10px;
+  border: 3px solid #070c1b; /* Creates padding around the thumb */
+}
+
+/* 4. Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #040811;         /* Slightly lighter when hovering */
+}

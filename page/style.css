@@ -1,0 +1,117 @@
+body{
+    background: #0b132b; 
+    overflow: hidden;
+}
+
+.subtitle{
+  color: whitesmoke !important;
+  font-size: 25px;
+  font-weight: 900 !important;
+}
+
+.code{
+    font-family: "DM Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 14px;
+}
+
+.count_label{
+    color: whitesmoke;
+}
+
+/*text with image*/
+.title{
+    font-family: "Lilita One", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 100px;
+    color: transparent;
+    background-image: url("/static/title_bg.webp");
+    background-size: auto;
+    background-clip: text;
+    animation: animate 20s linear infinite;
+    text-align: center;
+}
+
+/* text with image animation*/
+@keyframes animate{
+    to{
+        background-position: -500px;
+    }
+}
+
+
+/*typewrite effect*/
+.subtitle{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .30em solid #5b5383 !important; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #5b5383; }
+}
+
+/*normal button*/
+.normal_button{
+    background-image: url("/static/title_bg.webp") !important;
+    border-color: #070c1b;
+    width: 100%;
+    font-size: 20px;
+}
+
+.normal_button:hover{
+  border-color: #5b5383 !important;
+}
+
+
+/*snow effect*/
+
+.snow {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(1px); /* Softens the snow */
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  100% {
+    transform: translateY(105vh) translateX(50px);
+  }
+}
+
+/*snof effect*/
+/* Randomizing positions and speeds manually since we aren't using JS */
+.snow:nth-child(1) { left: 10%; animation-duration: 7s; animation-delay: 1s; }
+.snow:nth-child(2) { left: 25%; animation-duration: 9s; animation-delay: 3s; width: 5px; height: 5px;}
+.snow:nth-child(3) { left: 40%; animation-duration: 6s; animation-delay: 0s; }
+.snow:nth-child(4) { left: 55%; animation-duration: 10s; animation-delay: 5s; width: 8px; height: 8px;}
+.snow:nth-child(5) { left: 70%; animation-duration: 8s; animation-delay: 2s; }
+.snow:nth-child(6) { left: 85%; animation-duration: 7s; animation-delay: 4s; }
+.snow:nth-child(7) { left: 15%; animation-duration: 11s; animation-delay: 1s; width: 4px; height: 4px;}
+.snow:nth-child(8) { left: 50%; animation-duration: 9s; animation-delay: 6s; }
+.snow:nth-child(9) { left: 95%; animation-duration: 12s; animation-delay: 0s; }
+.snow:nth-child(10) { left: 33%; animation-duration: 8s; animation-delay: 2s; }
+
+
+
