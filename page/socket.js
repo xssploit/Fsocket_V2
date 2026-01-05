@@ -2,7 +2,7 @@ class Fsocket{
     constructor(id){
         this.id = id;
         this.domainWithPort = window.location.host;
-        this.socket = new WebSocket(`ws://${this.domainWithPort}/usr/${id}`);
+        this.socket = new WebSocket(`wss://${this.domainWithPort}/usr/${id}`);
         this.messages = [];
     }
 
